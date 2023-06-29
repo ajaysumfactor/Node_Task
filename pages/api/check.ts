@@ -3,11 +3,14 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 
 export default async function check(req:NextApiRequest,res:NextApiResponse){
-if(req.method==='GET'){
+if(req.method==='POST'){
 try{
     // const query =  `insert into user(fname,lname,email,password,age,qualification)values('Abhay','verma','ajay@gmail.com','abhay@12345','23','B.tech')`;
+    console.log(req.body);
+    const {fname,lname,email,password,age,qualification}=req.body;
+    const query =  `insert into user(fname,lname,email,password,age,qualification)values('${fname}','${lname}','${email}','${password}','${age}','${qualification}')`;
 
-    const query='select * from user';
+    // const query='select * from user';
     connection.query(query, (error, results) => {
       if (error) {
         console.error('Error checking MySQL connection:', error);
