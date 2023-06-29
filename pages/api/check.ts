@@ -10,7 +10,7 @@ try{
     const {fname,lname,email,password,age,qualification}=req.body;
 
     // insert
-    // const query =  `insert into user(fname,lname,email,password,age,qualification)values('${fname}','${lname}','${email}','${password}','${age}','${qualification}')`;
+    const query =  `insert into user(fname,lname,email,password,age,qualification)values('${fname}','${lname}','${email}','${password}','${age}','${qualification}')`;
 
     //retrive
     // const query='select * from user';
@@ -19,7 +19,7 @@ try{
     // const query = `update user set fname='hitesh' where email="abhay@gmail.com"`
 
     //delete
-     const query = `delete from user where email="abhay@gmail.com"`
+    //  const query = `delete from user where email="abhay@gmail.com"`
 
     connection.query(query, (error, results) => {
       if (error) {
