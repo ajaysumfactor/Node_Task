@@ -8,9 +8,19 @@ try{
     // const query =  `insert into user(fname,lname,email,password,age,qualification)values('Abhay','verma','ajay@gmail.com','abhay@12345','23','B.tech')`;
     console.log(req.body);
     const {fname,lname,email,password,age,qualification}=req.body;
-    const query =  `insert into user(fname,lname,email,password,age,qualification)values('${fname}','${lname}','${email}','${password}','${age}','${qualification}')`;
 
+    // insert
+    // const query =  `insert into user(fname,lname,email,password,age,qualification)values('${fname}','${lname}','${email}','${password}','${age}','${qualification}')`;
+
+    //retrive
     // const query='select * from user';
+
+    //update
+    // const query = `update user set fname='hitesh' where email="abhay@gmail.com"`
+
+    //delete
+     const query = `delete from user where email="abhay@gmail.com"`
+
     connection.query(query, (error, results) => {
       if (error) {
         console.error('Error checking MySQL connection:', error);
