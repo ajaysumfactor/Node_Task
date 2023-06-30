@@ -1,6 +1,6 @@
 import { NextApiRequest,NextApiResponse } from "next";
 import { executeQuery } from "@/lib/database/connection";
-import { generateJwtToken } from "@/lib/server";
+import { generateJwtToken,refreshAccessToken } from "@/lib/server";
 import bcrypt from 'bcrypt';
 export default async function login(req:NextApiRequest,res:NextApiResponse){
  if(req.method==='POST'){
@@ -21,7 +21,8 @@ export default async function login(req:NextApiRequest,res:NextApiResponse){
     // password matched then generate token and send 
     let user:any={email:email as string,password:password as string};
     let JWTtoken=generateJwtToken(user);
-    res.status(200).send({JWTtoken,message:{done:true}});
+    const JWTrefreshtoken=refreshAccessToken({user});
+    res.status(200).send({JWTtoken,JWTrefreshtoken,message:{done:true}});
    }
    catch(error){
     res.status(400).send({done:false});

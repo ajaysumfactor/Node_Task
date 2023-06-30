@@ -8,4 +8,10 @@ interface JwtToken{
 export const generateJwtToken=(user:JwtToken)=>{
     return jwt.sign(user,secret,{expiresIn:'2m'});
 }
+interface refreshJwtToken{
+    user:object
+}
+export const refreshAccessToken=(tokenUser:refreshJwtToken)=>{
+    return jwt.sign(tokenUser.user,refreshToken);
+}
 
