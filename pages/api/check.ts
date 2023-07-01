@@ -30,9 +30,8 @@ try{
 
     const UserData:any=await executeQuery(findRecordsQuery);
     // check if a particular user data is already in database
-    if(UserData.length>0){
-     return res.status(400).send({message: "user is already registered please login"});
-    }
+    if(UserData.length>0) return res.status(400).send({message: "user is already registered please login"});
+    
     // encrypt the password then storing in database---------------------
     const salt=await bcrypt.genSalt();
     const hashedPassword=await bcrypt.hash(password,salt);

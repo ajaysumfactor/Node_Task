@@ -20,7 +20,9 @@ export default async function login(req:NextApiRequest,res:NextApiResponse){
     }
     // password matched then generate token and send 
     let user:any={email:email as string,password:password as string};
+    // jwt token is generated
     let JWTtoken=generateJwtToken(user);
+    // jwt refresh token is generated:-used to renew the jwt token
     const JWTrefreshtoken=refreshAccessToken({user});
     res.status(200).send({JWTtoken,JWTrefreshtoken,message:{done:true}});
    }
