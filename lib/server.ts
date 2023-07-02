@@ -34,3 +34,17 @@ export const verifyToken=(req:NextApiRequest,res:NextApiResponse,next:()=>void)=
     })
 }
 
+
+export const verifyRefresh=(email:string,token:string):boolean=>{
+    try{
+    const decodedData=jwt.verify(token,refreshToken) as JwtPayload;
+    return decodedData.email===email;
+    }
+    catch(error)
+  {
+      return false;
+  }
+  }
+
+
+  
