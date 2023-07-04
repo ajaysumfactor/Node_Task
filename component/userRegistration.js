@@ -9,7 +9,9 @@ const RegistrationForm = () => {
   const [qualification, setQualification] = useState('');
 
 
-  const handleSubmit = async(e:any) => {
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
      const userData = {
         fname,
         lname,
@@ -25,6 +27,7 @@ const RegistrationForm = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(userData),
+        //   is used to convert the userData object into a JSON string before sending it in the request body.
         });
     // console.log({response});
         if (response.ok) {

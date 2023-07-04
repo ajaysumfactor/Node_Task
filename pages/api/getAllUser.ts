@@ -9,7 +9,7 @@ const secret=process.env.JWT_SECRET_KEY as string;
     verifyToken(req, res, async() => {
     const getRecord = `select * from user;`
     const resultset: any = await executeQuery(getRecord);
-    res.status(200).send({message:resultset,done:true});
+    res.status(200).send({userlist:resultset,done:true});
     });
 }
 catch (error) {

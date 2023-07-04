@@ -8,6 +8,8 @@ export default async function login(req:NextApiRequest,res:NextApiResponse){
       const {email,password}=req.body;
       const getRecordQuery=`select * from user where email='${email}'`;
       const getRecord:any=await executeQuery(getRecordQuery);
+      console.log(getRecord);
+
     //   chek if user exist or not
       if(getRecord.length==0){
         res.status(404).send({message:"user not found please register and try again to login"});

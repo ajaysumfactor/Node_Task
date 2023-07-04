@@ -5,7 +5,8 @@ export default async function accessToken(req:NextApiRequest,res:NextApiResponse
     try{
     const {email,token}=req.body;
     const isValid=verifyRefresh(email,token);
-    if(!isValid){
+    if(!isValid)
+    {
         return res.status(401).send({success:false,error:"invalid token please try again"});
 
     }
