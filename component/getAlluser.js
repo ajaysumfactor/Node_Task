@@ -3,7 +3,6 @@ import styles from './getAlluser.module.css';
 const GetAllUser=()=>{
     const deleteUser=async(email)=>{
         const userData = {
-            
             email,
             
           };
@@ -36,6 +35,9 @@ const GetAllUser=()=>{
         }
         getuserlist();
     },[]);
+    const handleRowClick = (email) => {
+        deleteUser(email);
+      };
       
     return (
         <>
@@ -61,7 +63,7 @@ const GetAllUser=()=>{
         <td className={styles.table_data}>{user.password}</td>
         <td className={styles.table_data}>{user.age}</td>
         <td className={styles.table_data}>{user.qualification}</td>
-        <td className={styles.table_data}><button onClick={() => deleteUser(user.email)}>Delete</button></td>
+        <td className={styles.table_data}><button onClick={() => handleRowClick(user.email)}>Delete</button></td>
 
       </tr>
     ))}

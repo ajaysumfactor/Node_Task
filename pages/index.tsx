@@ -3,6 +3,7 @@ import Image from 'next/image'
  import connection from '@/lib/database/connection'
  import RegistrationForm from '../component/userRegistration';
  import GetAllUser from '../component/getAlluser';
+ import Login from '@/component/login';
 export default function Home() {
    return (
     <>
@@ -10,7 +11,8 @@ export default function Home() {
       <RegistrationForm/>
       <br>
       </br>
-      <GetAllUser/>
-    </>
+      {/* <GetAllUser/> */}
+      <br></br>
+     </>
   )
 }

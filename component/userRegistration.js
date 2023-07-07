@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const RegistrationForm = () => {
+    const router=useRouter();
   const [fname, setFirstName] = useState('');
   const [lname, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -8,6 +10,9 @@ const RegistrationForm = () => {
   const [age, setAge] = useState('');
   const [qualification, setQualification] = useState('');
 
+  const goLogin=async()=>{
+    router.push('/loginUser');
+  }
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -34,6 +39,7 @@ const RegistrationForm = () => {
            console.log('successfully registered');
          } else {
            console.log('user is already registered please login');
+        //    router.push('/loginUser');
          }
       } catch (error) {
         console.error('error in register', error);
@@ -98,6 +104,8 @@ const RegistrationForm = () => {
         />
       </div>
       <button type="submit">Register</button>
+      <button onClick={goLogin}>login</button>
+
     </form>
   );
 };
