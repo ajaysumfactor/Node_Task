@@ -20,7 +20,7 @@ const Login = () => {
         if (isLoggedIn) {
             sessionTimeout = setTimeout(() => {
                 handleLogout();
-            }, 1 * 60 * 1000);
+            }, 2 * 60 * 1000);
         }
 
         return () => {
